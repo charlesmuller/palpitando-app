@@ -1,0 +1,54 @@
+# Environment files
+.env
+.env.backup
+.env.production
+.env.local
+
+# IDE and Editor files
+/.vscode
+/.idea
+/.nova
+/.cursor/
+/.zed
+.phpactor.json
+_ide_helper.php
+
+# Dependencies
+/vendor
+/node_modules
+
+# Laravel specific
+/public/build
+/public/fonts-manifest.dev.json
+/public/hot
+/public/storage
+/storage/*.key
+/storage/pail
+/storage/logs/*.log
+/bootstrap/cache
+/.phpunit.cache
+/.phpunit.result.cache
+
+# OS files
+.DS_Store
+Thumbs.db
+*.log
+
+# Vagrant
+Homestead.json
+Homestead.yaml
+
+# Auth
+/auth.json
+
+# Build/Cache directories (opcional, mas recomendado)
+/build
+/.cache
+/.temp
+
+# Node build outputs (opcional)
+/dist
+/build
+
+# Palpitando specific (se for um diretório de cache)
+/palpitando

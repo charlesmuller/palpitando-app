@@ -1,0 +1,56 @@
+FROM php:8.3-fpm
+
+# Instala dependências do sistema
+RUN apt-get update && apt-get install -y \
+    git \
+    curl \
+    libpng-dev \
+    libonig-dev \
+    libxml2-dev \
+    libzip-dev \
+    libgd-dev \
+    zip \
+    unzip \
+    nodejs \
+    npm \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# Instala extensões PHP
+RUN docker-php-ext-install \
+    pdo_mysql \
+    mbstring \
+    exif \
+    pcntl \
+    bcmath \
+    gd \
+    zip \
+    opcache
+
+RUN pecl install redis && docker-php-ext-enable redis
+
+# OPcache otimizado para produção
+RUN { \
+    echo 'opcache.memory_consumption=128'; \
+    echo 'opcache.interned_strings_buffer=8'; \
+    echo 'opcache.max_accelerated_files=4000'; \
+    echo 'opcache.revalidate_freq=60'; \
+    echo 'opcache.fast_shutdown=1'; \
+    echo 'opcache.enable_cli=1'; \
+} > /usr/local/etc/php/conf.d/opcache.ini
+
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+RUN groupadd -g 1000 www && useradd -u 1000 -ms /bin/bash -g www www
+
+WORKDIR /var/www
+
+# Copia arquivos e instala dependências de produção
+COPY --chown=www:www . .
+RUN composer install --no-dev --optimize-autoloader --no-interaction
+RUN npm ci && npm run build
+
+USER www
+
+EXPOSE 9000
+CMD ["php-fpm"]
