@@ -1,58 +1,73 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
-
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+  <h1>⚽ Palpitando - Copa do Mundo Betting App</h1>
 </p>
 
-## About Laravel
+<p align="center">
+  Uma aplicação web moderna para gerenciar bolões da Copa do Mundo, permitindo que usuários façam palpites sobre os resultados dos jogos.
+</p>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+<p align="center">
+  <img src="https://img.shields.io/badge/Laravel-13.15.0-FF2D20?style=flat-square&logo=laravel" alt="Laravel">
+  <img src="https://img.shields.io/badge/PHP-8.3-777BB4?style=flat-square&logo=php" alt="PHP">
+  <img src="https://img.shields.io/badge/Docker-Compose-2496ED?style=flat-square&logo=docker" alt="Docker">
+  <img src="https://img.shields.io/badge/MySQL-8.0-00758F?style=flat-square&logo=mysql" alt="MySQL">
+  <img src="https://img.shields.io/badge/License-MIT-green.svg?style=flat-square" alt="License">
+</p>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 📋 Sobre o Palpitando
 
-## Learning Laravel
+**Palpitando** é uma plataforma interativa desenvolvida com Laravel 13 para gerenciar bolões da Copa do Mundo. A aplicação permite que usuários se autentiquem, visualizem os jogos disponíveis e façam seus palpites sobre os resultados.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Características Principais
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- ✅ **Autenticação de usuários** com Laravel Breeze
+- ✅ **Gerenciamento de jogos** da Copa do Mundo (integração com Football Data API)
+- ✅ **Sistema de palpites** para cada jogo
+- ✅ **Painel administrativo** com Filament
+- ✅ **Interface responsiva** para dispositivos móveis
+- ✅ **Arquitetura escalável** com Docker
+- ✅ **Banco de dados MySQL** com PHPMyAdmin
+- ✅ **Cache com Redis** para melhor performance
+- ✅ **Segurança** contra ataques CSRF, XSS e SQL Injection
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+---
 
-## Agentic Development
+## 🚀 Tecnologias Utilizadas
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+### Backend
+- **Laravel 13** - Framework PHP moderno
+- **PHP 8.3** - Linguagem de programação
+- **MySQL 8.0** - Banco de dados
+- **Redis** - Cache e sessões
+- **Filament** - Painel administrativo
+- **Laravel Breeze** - Autenticação simples
 
+### Frontend
+- **Blade** - Template engine do Laravel
+- **Tailwind CSS** - Utilitários CSS
+- **Alpine.js** - JavaScript reativo
+- **Livewire** (opcional) - Componentes dinâmicos
+
+### DevOps
+- **Docker** - Containerização
+- **Docker Compose** - Orquestração de containers
+- **Nginx** - Servidor web
+- **PHPMyAdmin** - Gerenciamento de banco de dados
+
+---
+
+## 📦 Instalação e Setup
+
+### Pré-requisitos
+- Docker e Docker Compose instalados
+- Git configurado
+- SSH ou HTTPS para clonar repositórios
+
+### Passos para Configurar Localmente
+
+1. **Clone o repositório:**
 ```bash
-composer require laravel/boost --dev
-
-php artisan boost:install
-```
-
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+git clone git@github.com:charlesmuller/palpitando-app.git
+cd palpitando-app
