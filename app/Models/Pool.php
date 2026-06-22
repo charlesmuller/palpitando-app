@@ -14,16 +14,9 @@ class Pool extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name',
-        'slug',
-        'description',
-        'owner_id',
-        'is_public',
-        'invite_code',
-        'status',
-        'points_exact_score',
-        'points_winner',
-        'points_draw_hit',
+        'name', 'slug', 'description', 'owner_id',
+        'is_public', 'invite_code', 'status',
+        'points_exact_score', 'points_winner', 'points_draw_hit',
     ];
 
     protected function casts(): array
@@ -39,7 +32,6 @@ class Pool extends Model
     protected static function boot(): void
     {
         parent::boot();
-
         static::creating(function (Pool $pool) {
             if (empty($pool->slug)) {
                 $pool->slug = Str::slug($pool->name);
@@ -49,10 +41,6 @@ class Pool extends Model
             }
         });
     }
-
-    // -----------------------------------------------------------
-    // Relacionamentos
-    // -----------------------------------------------------------
 
     public function owner(): BelongsTo
     {
@@ -71,33 +59,10 @@ class Pool extends Model
         return $this->hasMany(Guess::class);
     }
 
-    // -----------------------------------------------------------
-    // Ranking
-    // -----------------------------------------------------------
-
     public function getRanking()
     {
         return $this->members()
                     ->orderByPivot('total_points', 'desc')
                     ->get();
-    }
-}
-
-// -----------------------------------------------------------
-// Group Model
-// -----------------------------------------------------------
-
-namespace App\Models;
-
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-
-class Group extends Model
-{
-    protected $fillable = ['name', 'label'];
-
-    public function matches(): HasMany
-    {
-        return $this->hasMany(Match::class);
     }
 }

@@ -3,7 +3,7 @@
 namespace App\Services;
 
 use App\Models\Group;
-use App\Models\Match;
+use App\Models\Match as FootballMatch;
 use App\Models\Team;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
@@ -131,8 +131,8 @@ class FootballApiService
             'matchday'        => $data['matchday'] ?? null,
         ];
 
-        $exists = Match::where('api_id', $data['id'])->exists();
-        Match::updateOrCreate($attributes, $values);
+        $exists = FootballMatch::where('api_id', $data['id'])->exists();
+        FootballMatch::updateOrCreate($attributes, $values);
 
         return $exists ? 'updated' : 'created';
     }

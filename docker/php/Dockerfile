@@ -40,7 +40,12 @@ RUN groupadd -g 1000 www && useradd -u 1000 -ms /bin/bash -g www www
 
 WORKDIR /var/www
 
-USER www
+ARG UID=1364806413
+ARG GID=1364800513
+RUN groupadd -g ${GID} appuser 2>/dev/null || true \
+    && useradd -u ${UID} -g ${GID} -ms /bin/bash appuser 2>/dev/null || true
+
+USER appuser
 
 EXPOSE 9000
 CMD ["php-fpm"]

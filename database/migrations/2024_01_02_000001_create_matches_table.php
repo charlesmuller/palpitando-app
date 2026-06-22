@@ -38,8 +38,8 @@ return new class extends Migration
         Schema::create('matches', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('api_id')->unique(); // ID da football-data.org
-            $table->string('competition_id');               // ID da competição na API
-            $table->string('season');                       // "2026"
+            $table->unsignedBigInteger('competition_id');  // ID da competição na API
+            $table->year('season');                       // "2026"
 
             // Times
             $table->foreignId('home_team_id')->constrained('teams');
